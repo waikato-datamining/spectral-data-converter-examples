@@ -1,0 +1,22 @@
+site_name: spectral-data-converter examples
+site_url: https://www.data-mining.co.nz/spectral-data-converter-examples/
+repo_url: https://github.com/waikato-datamining/spectral-data-converter-examples
+edit_uri: edit/master/docs/
+site_description: Examples for using the spectral-data-converter libraries
+theme:
+    name: material
+markdown_extensions:
+    - toc:
+          baselevel: 2
+          permalink: "#"
+    - attr_list
+plugins:
+    - search
+nav:
+    - Home: index.md
+    - Core library:
+        - Filter usage: filters.md
+        - Placeholders: placeholders.md
+        - Docker usage: docker.md
+        - External functions: pyfunc.md
+        - Multiple I/O: multi.md
