@@ -14,3 +14,7 @@ On this website you can find examples for:
 * [Placeholders](placeholders.md)
 * [Python functions](pyfunc.md)
 * [Docker usage](docker.md)
+
+Examples for the additional libraries:
+
+* [Visualization](vis.md)

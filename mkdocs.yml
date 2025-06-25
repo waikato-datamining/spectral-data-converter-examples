@@ -20,3 +20,6 @@ nav:
         - Docker usage: docker.md
         - External functions: pyfunc.md
         - Multiple I/O: multi.md
+    - Additional libraries:
+        - Visualization: vis.md
+
