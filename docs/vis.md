@@ -21,3 +21,7 @@ sdc-convert -l INFO -b \
     --title ADAMS \
     --legend
 ```
+
+The resulting plot looks something like this:
+
+![Displaying some spectra (view_spectra.png)](img/view_spectra.png)
