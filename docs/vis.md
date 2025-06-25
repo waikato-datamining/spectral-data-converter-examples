@@ -1,6 +1,6 @@
 # Requirements
 
-Requires the [spectral-data-converter-vis](https://github.com/waikato-datamining/spectral-data-converter-vis) module.
+Requires the [spectral-data-converter-vis](https://github.com/waikato-datamining/spectral-data-converter-vis) library.
 
 
 # Plugins
