@@ -17,4 +17,5 @@ On this website you can find examples for:
 
 Examples for the additional libraries:
 
+* [scikit-learn](sklearn.md)
 * [Visualization](vis.md)
