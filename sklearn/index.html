@@ -405,6 +405,19 @@
     Training a model
   </a>
   
+    <nav class="md-nav" aria-label="Training a model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-a-template" class="md-nav__link">
+    Using a template
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -492,6 +505,19 @@
     Training a model
   </a>
   
+    <nav class="md-nav" aria-label="Training a model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-a-template" class="md-nav__link">
+    Using a template
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -546,6 +572,37 @@ and saves it to disk: </p>
     -l INFO \
     -m sklearn.cross_decomposition.PLSRegression \
     -p &quot;{\&quot;n_components\&quot;: 3}&quot; \
+    -t al.ext_usda.a1056_mg.kg \
+    -o {CWD}/model/al.pkl
+</code></pre>
+<h4 id="using-a-template">Using a template<a class="headerlink" href="#using-a-template" title="Permanent link">#</a></h4>
+<p>For more complicated setups, it can be easier to create a pickled template 
+of the estimator/pipeline. Such a template can then be loaded via the 
+<code>-T/--template</code> option of the <code>sklearn-fit</code> plugin.</p>
+<p>First, create the template:</p>
+<pre><code class="language-python">import pickle
+from sklearn.pipeline import Pipeline
+from sklearn.cross_decomposition import PLSRegression
+from sklearn.preprocessing import StandardScaler
+
+pipe = Pipeline([
+    ('scaler', StandardScaler()),
+    ('pls', PLSRegression(n_components=3))
+])
+
+with open(&quot;./model/al_template.pkl&quot;, &quot;wb&quot;) as fp:
+    pickle.dump(pipe, fp)
+</code></pre>
+<p>Then, make use of the template:</p>
+<pre><code class="language-bash">sdc-convert -l INFO -b \
+  from-adams \
+    -l INFO \
+    -i {CWD}/train/*.spec \
+  downsample \
+    -n 4 \
+  sklearn-fit \
+    -l INFO \
+    -T {CWD}/model/al_template.pkl \
     -t al.ext_usda.a1056_mg.kg \
     -o {CWD}/model/al.pkl
 </code></pre>
