@@ -105,3 +105,24 @@ sdc-convert -l INFO \
     -o {CWD}/test/adams/output/ \
     --output_sampledata
 ```
+
+
+## Cleaning data
+
+Using the `apply-cleaner` batch filter, you can clean batches of data
+using any of the defined cleaners. The following applies the IQR cleaner
+to remove spectra that have amplitudes that are considered outliers:
+
+```bash
+sdc-convert -l INFO -b \
+  from-adams \
+    -l INFO \
+    -i {CWD}/input/*.spec \
+  apply-cleaner \
+    -l INFO \
+    -c "iqr-cl -l INFO -f 4.25" \
+  to-adams \
+    -l INFO \
+    -o {CWD}/output/ \
+    --output_sampledata
+```
