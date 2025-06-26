@@ -302,6 +302,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cleaning-data" class="md-nav__link">
+    Cleaning data
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -480,6 +487,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cleaning-data" class="md-nav__link">
+    Cleaning data
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -593,6 +607,22 @@
   to-adams \
     -l INFO \
     -o {CWD}/test/adams/output/ \
+    --output_sampledata
+</code></pre>
+<h3 id="cleaning-data">Cleaning data<a class="headerlink" href="#cleaning-data" title="Permanent link">#</a></h3>
+<p>Using the <code>apply-cleaner</code> batch filter, you can clean batches of data
+using any of the defined cleaners. The following applies the IQR cleaner
+to remove spectra that have amplitudes that are considered outliers:</p>
+<pre><code class="language-bash">sdc-convert -l INFO -b \
+  from-adams \
+    -l INFO \
+    -i {CWD}/input/*.spec \
+  apply-cleaner \
+    -l INFO \
+    -c &quot;iqr-cl -l INFO -f 4.25&quot; \
+  to-adams \
+    -l INFO \
+    -o {CWD}/output/ \
     --output_sampledata
 </code></pre>
 
