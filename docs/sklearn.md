@@ -27,6 +27,44 @@ sdc-convert -l INFO -b \
     -o {CWD}/model/al.pkl
 ```
 
+### Using a template
+
+For more complicated setups, it can be easier to create a pickled template 
+of the estimator/pipeline. Such a template can then be loaded via the 
+`-T/--template` option of the `sklearn-fit` plugin.
+
+First, create the template:
+
+```python
+import pickle
+from sklearn.pipeline import Pipeline
+from sklearn.cross_decomposition import PLSRegression
+from sklearn.preprocessing import StandardScaler
+
+pipe = Pipeline([
+    ('scaler', StandardScaler()),
+    ('pls', PLSRegression(n_components=3))
+])
+
+with open("./model/al_template.pkl", "wb") as fp:
+    pickle.dump(pipe, fp)
+```
+
+Then, make use of the template:
+
+```bash
+sdc-convert -l INFO -b \
+  from-adams \
+    -l INFO \
+    -i {CWD}/train/*.spec \
+  downsample \
+    -n 4 \
+  sklearn-fit \
+    -l INFO \
+    -T {CWD}/model/al_template.pkl \
+    -t al.ext_usda.a1056_mg.kg \
+    -o {CWD}/model/al.pkl
+```
 
 ## Making predictions
 
