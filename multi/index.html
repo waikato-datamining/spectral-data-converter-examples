@@ -342,12 +342,52 @@
     Multiple inputs
   </a>
   
+    <nav class="md-nav" aria-label="Multiple inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spectra" class="md-nav__link">
+    Spectra
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-data" class="md-nav__link">
+    Sample data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#multiple-outputs" class="md-nav__link">
     Multiple outputs
   </a>
+  
+    <nav class="md-nav" aria-label="Multiple outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spectra_1" class="md-nav__link">
+    Spectra
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-data_1" class="md-nav__link">
+    Sample data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -464,12 +504,52 @@
     Multiple inputs
   </a>
   
+    <nav class="md-nav" aria-label="Multiple inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spectra" class="md-nav__link">
+    Spectra
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-data" class="md-nav__link">
+    Sample data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#multiple-outputs" class="md-nav__link">
     Multiple outputs
   </a>
+  
+    <nav class="md-nav" aria-label="Multiple outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spectra_1" class="md-nav__link">
+    Spectra
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-data_1" class="md-nav__link">
+    Sample data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -514,6 +594,7 @@ of different types need to be generated for different frameworks (<em>multiple o
 <p>There is one restriction, each of the base reader/writer must be from the
 same data domain.</p>
 <h2 id="multiple-inputs">Multiple inputs<a class="headerlink" href="#multiple-inputs" title="Permanent link">#</a></h2>
+<h3 id="spectra">Spectra<a class="headerlink" href="#spectra" title="Permanent link">#</a></h3>
 <p>The following command reads data in Opus and ASCII XY, with the combined 
 output being saved in ADAMS format:</p>
 <pre><code class="language-bash">sdc-convert \
@@ -526,7 +607,21 @@ output being saved in ADAMS format:</p>
     -l INFO \
     -o &quot;{CWD}/output&quot;
 </code></pre>
+<h3 id="sample-data">Sample data<a class="headerlink" href="#sample-data" title="Permanent link">#</a></h3>
+<p>The following reads sample data in CSV and JSON format and outputs the records
+in ADAMS format:</p>
+<pre><code class="language-bash">sdc-convert \
+  -l INFO \
+  from-multi \
+    -l INFO \
+    -r &quot;from-csv-sd -l INFO -i {CWD}/csv/input/*.csv&quot; \
+       &quot;from-json-sd -l INFO -i {CWD}/json/input/*.json&quot; \
+  to-report-sd \
+    -l INFO \
+    -o {CWD}/output/
+</code></pre>
 <h2 id="multiple-outputs">Multiple outputs<a class="headerlink" href="#multiple-outputs" title="Permanent link">#</a></h2>
+<h3 id="spectra_1">Spectra<a class="headerlink" href="#spectra_1" title="Permanent link">#</a></h3>
 <p>Below, the source data is in ADAMS format and will be
 converted to ASC and ASCII XY:</p>
 <pre><code class="language-bash">sdc-convert \
@@ -539,6 +634,22 @@ converted to ASC and ASCII XY:</p>
     -w &quot;to-asc -l INFO -o {CWD}/output/asc&quot; \
        &quot;to-asciixy -l INFO -o {CWD}/output/asciixy&quot;
 </code></pre>
+<h3 id="sample-data_1">Sample data<a class="headerlink" href="#sample-data_1" title="Permanent link">#</a></h3>
+<p>The following loads ADAMS sample data records and saves them in CSV
+and JSON format:</p>
+<pre><code class="language-bash">sdc-convert \
+  -l INFO \
+  from-report-sd \
+    -l INFO \
+    -i {CWD}/adams/input/*.report \
+  to-multi \
+    -l INFO \
+    -w &quot;to-csv-sd -l INFO -o {CWD}/output/{INPUT_NAMENOEXT}.csv&quot; \
+       &quot;to-json-sd -l INFO -o {CWD}/output/&quot;
+</code></pre>
+<p><strong>NB:</strong> Since <code>to-csv-sd</code> is a batch writer expecting an output file rather 
+than a directory, we have to resort to using the <code>{INPUT_NAMENOEXT}</code>
+placeholder to generate output.</p>
 <h2 id="sub-pipelines">Sub-pipelines<a class="headerlink" href="#sub-pipelines" title="Permanent link">#</a></h2>
 <p>With the <code>tee</code> meta-filter, it is possible to filter the spectra coming through with a separate
 sub-pipeline. That allows converting the incoming data into multiple output formats with
