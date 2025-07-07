@@ -14,6 +14,8 @@ same data domain.
 
 # Multiple inputs
 
+## Spectra
+
 The following command reads data in Opus and ASCII XY, with the combined 
 output being saved in ADAMS format:
 
@@ -29,7 +31,27 @@ sdc-convert \
     -o "{CWD}/output"
 ```
 
+## Sample data
+
+The following reads sample data in CSV and JSON format and outputs the records
+in ADAMS format:
+
+```bash
+sdc-convert \
+  -l INFO \
+  from-multi \
+    -l INFO \
+    -r "from-csv-sd -l INFO -i {CWD}/csv/input/*.csv" \
+       "from-json-sd -l INFO -i {CWD}/json/input/*.json" \
+  to-report-sd \
+    -l INFO \
+    -o {CWD}/output/
+```
+
+
 # Multiple outputs
+
+## Spectra
 
 Below, the source data is in ADAMS format and will be
 converted to ASC and ASCII XY:
@@ -45,6 +67,27 @@ sdc-convert \
     -w "to-asc -l INFO -o {CWD}/output/asc" \
        "to-asciixy -l INFO -o {CWD}/output/asciixy"
 ```
+
+## Sample data
+
+The following loads ADAMS sample data records and saves them in CSV
+and JSON format:
+
+```bash
+sdc-convert \
+  -l INFO \
+  from-report-sd \
+    -l INFO \
+    -i {CWD}/adams/input/*.report \
+  to-multi \
+    -l INFO \
+    -w "to-csv-sd -l INFO -o {CWD}/output/{INPUT_NAMENOEXT}.csv" \
+       "to-json-sd -l INFO -o {CWD}/output/"
+```
+
+**NB:** Since `to-csv-sd` is a batch writer expecting an output file rather 
+than a directory, we have to resort to using the `{INPUT_NAMENOEXT}`
+placeholder to generate output.
 
 
 # Sub-pipelines
