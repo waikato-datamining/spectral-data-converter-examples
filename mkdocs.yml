@@ -20,6 +20,7 @@ nav:
         - Docker usage: docker.md
         - External functions: pyfunc.md
         - Multiple I/O: multi.md
+        - ZIP files: zip.md
     - Additional libraries:
         - scikit-learn: sklearn.md
         - Visualization: vis.md

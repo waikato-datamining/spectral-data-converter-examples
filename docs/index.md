@@ -14,6 +14,7 @@ On this website you can find examples for:
 * [Placeholders](placeholders.md)
 * [Python functions](pyfunc.md)
 * [Docker usage](docker.md)
+* [ZIP files](zip.md)
 
 Examples for the additional libraries:
 
