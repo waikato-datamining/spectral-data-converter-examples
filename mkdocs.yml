@@ -21,6 +21,7 @@ nav:
         - External functions: pyfunc.md
         - Multiple I/O: multi.md
         - ZIP files: zip.md
+        - Direct I/O: directio.md
     - Additional libraries:
         - scikit-learn: sklearn.md
         - Visualization: vis.md

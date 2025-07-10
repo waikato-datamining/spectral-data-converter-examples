@@ -15,6 +15,7 @@ On this website you can find examples for:
 * [Python functions](pyfunc.md)
 * [Docker usage](docker.md)
 * [ZIP files](zip.md)
+* [Direct I/O](directio.md)
 
 Examples for the additional libraries:
 
