@@ -10,14 +10,14 @@
       
       
       
-        <link rel="canonical" href="https://www.data-mining.co.nz/spectral-data-converter-examples/zip/">
+        <link rel="canonical" href="https://www.data-mining.co.nz/spectral-data-converter-examples/directio/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>ZIP files - spectral-data-converter examples</title>
+        <title>Direct I/O - spectral-data-converter examples</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#requirements" class="md-skip">
+        <a href="#spectra" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ZIP files
+              Direct I/O
             
           </span>
         </div>
@@ -320,6 +320,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../zip/" class="md-nav__link">
+        ZIP files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -330,12 +344,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          ZIP files
+          Direct I/O
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        ZIP files
+        Direct I/O
       </a>
       
         
@@ -352,36 +366,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    Requirements
+  <a href="#spectra" class="md-nav__link">
+    Spectra
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#plugins" class="md-nav__link">
-    Plugins
+  <a href="#sample-data" class="md-nav__link">
+    Sample data
   </a>
-  
-    <nav class="md-nav" aria-label="Plugins">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#reading" class="md-nav__link">
-    Reading
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#writing" class="md-nav__link">
-    Writing
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -389,20 +383,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../directio/" class="md-nav__link">
-        Direct I/O
-      </a>
     </li>
   
 
@@ -501,36 +481,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    Requirements
+  <a href="#spectra" class="md-nav__link">
+    Spectra
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#plugins" class="md-nav__link">
-    Plugins
+  <a href="#sample-data" class="md-nav__link">
+    Sample data
   </a>
-  
-    <nav class="md-nav" aria-label="Plugins">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#reading" class="md-nav__link">
-    Reading
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#writing" class="md-nav__link">
-    Writing
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -548,83 +508,66 @@
                 
                   
 
-  <a href="https://github.com/waikato-datamining/spectral-data-converter-examples/edit/master/docs/zip.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/waikato-datamining/spectral-data-converter-examples/edit/master/docs/directio.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-  <h1>ZIP files</h1>
+  <h1>Direct I/O</h1>
 
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
-<p>ZIP file support comes as part of the core library (spectral-data-converter).</p>
-<p>The <code>from-zip</code> meta-reader and <code>to-zip</code> meta-writer can use any reader/writer
-as base reader/writer that implements the <code>DirectReader</code>/<code>DirectWriter</code> mixin, 
-as they can handle reading from/writing to file-like objects. That applies to
-spectra as well as sample data readers/writers.</p>
-<p><strong>Notes</strong></p>
-<ul>
-<li>The <code>to-zip</code> writer is a stream writer, which means that spectra will
-  get stored separately as individual files in the archive. This happens 
-  regardless of whether batches of data arrive.</li>
-<li>When specifying the reader/writer in the command-line, you need to use 
-  the <code>--option="argument"</code> notion. When using <code>--option "argument"</code>, the 
-  reader/writer in the argument will get interpreted as part of the 
-  pipeline.</li>
-</ul>
-<h2 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">#</a></h2>
-<h3 id="reading">Reading<a class="headerlink" href="#reading" title="Permanent link">#</a></h3>
-<p>The following command reads spectra in ADAMS .spec format from a zip file, 
-down-samples them (i.e., only leaves every nth wave number) and then saves them
-to an output directory:</p>
-<pre><code class="language-bash">sdc-convert -l INFO \
-  from-zip \
-    -l INFO \
-    -i &quot;./input/spec.zip&quot; \
-    -p &quot;*.spec&quot; \
-    -r=&quot;from-adams -l INFO&quot; \
-  downsample \
-    -n 4 \
-  to-adams \
-    -l INFO \
-    -o ./output
+<p>The spectral-data-converter library is mainly designed to be used as 
+a command-line pipeline for working with files. However, you can also
+use any of the readers/writers that implement the <code>seppl.io.DirectReader</code> / 
+<code>seppl.io.DirectWriter</code> mixins. By being able to handle file-like objects,
+you can move away from just using files via paths.</p>
+<p>Though the examples below are still using files for reading/writing, the
+concept is the same if you want to access other types of data.</p>
+<h2 id="spectra">Spectra<a class="headerlink" href="#spectra" title="Permanent link">#</a></h2>
+<p>The following code snippet reads an SPA file and writes the spectra in
+ADAMS format to another directory:</p>
+<pre><code class="language-python">from sdc.reader import SPAReader as Reader
+from sdc.writer import AdamsWriter as Writer
+from seppl import Session
+
+r = Reader(direct_read=True)
+r.initialize()
+r.session = Session()
+w = Writer(output_sampledata=True)
+w.initialize()
+w.session = r.session
+
+f_in = &quot;./input/cylohex.spa&quot;
+with open(f_in, &quot;rb&quot;) as fp:
+    sps = [x for x in r.read_fp(fp)]
+
+f_out = &quot;./output/&quot;
+for i, sp in enumerate(sps):
+    with open(f_out + str(i) + &quot;.spec&quot;, &quot;w&quot;) as fp:
+        w.write_stream_fp(sp, fp, False)
 </code></pre>
-<p>Sample data files can be read in the same way:</p>
-<pre><code class="language-bash">sdc-convert -l INFO \
-  from-zip \
-    -l INFO \
-    -i &quot;./input/sampledata.zip&quot; \
-    -p &quot;*.report&quot; \
-    -r=&quot;from-report-sd -l INFO&quot; \
-  to-json-sd \
-    -l INFO \
-    -o ./output
-</code></pre>
-<h3 id="writing">Writing<a class="headerlink" href="#writing" title="Permanent link">#</a></h3>
-<p>The command below reads spectra in ADAMS .spec format, applies <code>row-norm</code> (aka 
-standard-normal-variate) to them and then stores them in DPT format in the zip 
-file:</p>
-<pre><code class="language-bash">sdc-convert -l INFO \
-  from-adams \
-    -l INFO \
-    -i &quot;./input/*.spec&quot; \
-  row-norm \
-  to-zip \
-    -l INFO \
-    -o ./output/dpt.zip \
-    -w=&quot;to-dpt -l INFO&quot;
-</code></pre>
-<p>We can also extract the sample data information from spectra and store just 
-that in a zip file:</p>
-<pre><code class="language-bash">sdc-convert -l INFO \
-  from-adams \
-    -l INFO \
-    -i &quot;./input/*.spec&quot; \
-  spectrum-to-sampledata \
-  to-zip \
-    -l INFO \
-    -o ./output/sampledata.zip \
-    -w=&quot;to-json-sd -l INFO&quot;
+<h2 id="sample-data">Sample data<a class="headerlink" href="#sample-data" title="Permanent link">#</a></h2>
+<p>The following code snippet reads sample data records from a CSV file and 
+writes them in JSON format to another directory:</p>
+<pre><code class="language-python">from sdc.reader import CSVSampleDataReader as Reader
+from sdc.writer import JsonSampleDataWriter as Writer
+from seppl import Session
+
+r = Reader(direct_read=True, sample_id=&quot;1&quot;, sample_data=&quot;2-last&quot;)
+r.initialize()
+r.session = Session()
+w = Writer()
+w.initialize()
+w.session = r.session
+
+f_in = &quot;./input/sampledata.csv&quot;
+with open(f_in, &quot;r&quot;) as fp:
+    sds = [x for x in r.read_fp(fp)]
+
+f_out = &quot;./output/&quot;
+for i, sd in enumerate(sds):
+    with open(f_out + str(i) + &quot;.json&quot;, &quot;w&quot;) as fp:
+        w.write_stream_fp(sd, fp, False)
 </code></pre>
 
 
@@ -646,7 +589,7 @@ that in a zip file:</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../multi/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Multiple I/O" rel="prev">
+        <a href="../zip/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ZIP files" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -655,20 +598,20 @@ that in a zip file:</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Multiple I/O
+              ZIP files
             </div>
           </div>
         </a>
       
       
         
-        <a href="../directio/" class="md-footer__link md-footer__link--next" aria-label="Next: Direct I/O" rel="next">
+        <a href="../sklearn/" class="md-footer__link md-footer__link--next" aria-label="Next: scikit-learn" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Direct I/O
+              scikit-learn
             </div>
           </div>
           <div class="md-footer__button md-icon">
