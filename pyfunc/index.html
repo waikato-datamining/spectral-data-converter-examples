@@ -471,7 +471,8 @@ custom Python functions:</p>
 <li>writer: <code>my.code:pyfunc_writer</code></li>
 </ul>
 <pre><code class="language-python">from typing import Iterable
-from sdc.api import Spectrum, Spectrum2D, make_list, flatten_list
+from kasperl.api import make_list, flatten_list
+from sdc.api import Spectrum, Spectrum2D
 from wai.spectralio.adams import read
 
 # reader: generates spectrum containers from the path in ADAMS format   
