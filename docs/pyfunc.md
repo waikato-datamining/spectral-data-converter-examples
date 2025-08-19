@@ -21,7 +21,8 @@ If the code below were available through module `my.code`, then the function spe
 
 ```python
 from typing import Iterable
-from sdc.api import Spectrum, Spectrum2D, make_list, flatten_list
+from kasperl.api import make_list, flatten_list
+from sdc.api import Spectrum, Spectrum2D
 from wai.spectralio.adams import read
 
 # reader: generates spectrum containers from the path in ADAMS format   
