@@ -88,26 +88,3 @@ sdc-convert \
 **NB:** Since `to-csv-sd` is a batch writer expecting an output file rather 
 than a directory, we have to resort to using the `{INPUT_NAMENOEXT}`
 placeholder to generate output.
-
-
-# Sub-pipelines
-
-With the `tee` meta-filter, it is possible to filter the spectra coming through with a separate
-sub-pipeline. That allows converting the incoming data into multiple output formats with
-their own preprocessing.
-
-The following command loads the ADAMS annotations and saves them in ASC and ASCII XY format
-in one command, but one with centered and the other with log-transformed data:
-
-```bash
-sdc-convert \
-  -l INFO \
-  -b \
-  from-adams \
-    -l INFO \
-    -i "./adams/*.spec" \
-  tee \
-    -f "center to-asc -l INFO -o ./tee-asc/" \
-  tee \
-    -f "standardize to-asciixy -l INFO -o ./tee-asciixy/"
-```

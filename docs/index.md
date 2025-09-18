@@ -8,14 +8,19 @@ section for more details on supported formats.
 But the library does not just convert data formats, you can also slot in complex filter pipelines to 
 process/clean the data.
 
-On this website you can find examples for:
+On this website you can find examples and documentation for:
 
 * [Filter usage](filters.md)
 * [Placeholders](placeholders.md)
-* [Python functions](pyfunc.md)
-* [Docker usage](docker.md)
+* [Execution control](execution_control.md)
+* [External functions](pyfunc.md)
+* [Multiple I/O](multi.md)
 * [ZIP files](zip.md)
 * [Direct I/O](directio.md)
+* [Email](email.md)
+* [File handling](file_handling.md)
+* [Temporary storage](storage.md)
+* [Docker usage](docker.md)
 
 Examples for the additional libraries:
 

@@ -52,8 +52,9 @@ sdc-convert -l INFO \
 
 * `metadata` - allows comparisons on meta-data values and whether to keep or discard a record in case of a match
 * `metadata-from-name` - allows extraction of meta-data value from the spectrum name via a regular expression
-* `metadata-to-placeholder` - turns meta-data into placeholders, which can be used for redirecting output of writers
-* `split-records` - adds the field `split` to the meta-data of the record passing through, which can be acted on with other filters (or stored in the output)
+* `metadata-to-placeholder` - sets the specified placeholder using the data from the meta-data passing through
+* `set-metadata` - sets the meta-data key/value pair as data passes through, can make use of data passing through as well 
+* `split-records` - adds a field to the meta-data (default: `split`) of the record passing through, which can be acted on with other filters (or stored in the output)
 
 Splitting data into train/test and training `center` on the `train` batch:
 
