@@ -10,14 +10,14 @@
       
       
       
-        <link rel="canonical" href="https://www.data-mining.co.nz/spectral-data-converter-examples/filters/">
+        <link rel="canonical" href="https://www.data-mining.co.nz/spectral-data-converter-examples/execution_control/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Filter usage - spectral-data-converter examples</title>
+        <title>Execution control - spectral-data-converter examples</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#spectral-filters" class="md-skip">
+        <a href="#sub-pipelines" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Filter usage
+              Execution control
             
           </span>
         </div>
@@ -250,69 +250,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Filter usage
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../filters/" class="md-nav__link">
         Filter usage
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#spectral-filters" class="md-nav__link">
-    Spectral filters
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meta-data-management" class="md-nav__link">
-    Meta-data management
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#record-management" class="md-nav__link">
-    Record management
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cleaning-data" class="md-nav__link">
-    Cleaning data
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -336,11 +278,48 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../execution_control/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Execution control
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Execution control
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sub-pipelines" class="md-nav__link">
+    Sub-pipelines
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -551,29 +530,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#spectral-filters" class="md-nav__link">
-    Spectral filters
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meta-data-management" class="md-nav__link">
-    Meta-data management
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#record-management" class="md-nav__link">
-    Record management
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cleaning-data" class="md-nav__link">
-    Cleaning data
+  <a href="#sub-pipelines" class="md-nav__link">
+    Sub-pipelines
   </a>
   
 </li>
@@ -592,123 +550,40 @@
                 
                   
 
-  <a href="https://github.com/waikato-datamining/spectral-data-converter-examples/edit/master/docs/filters.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/waikato-datamining/spectral-data-converter-examples/edit/master/docs/execution_control.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-  <h1>Filter usage</h1>
+  <h1>Execution control</h1>
 
-<p>The following sections only show snippets of commands, as there are quite a number of filters available.</p>
-<h3 id="spectral-filters">Spectral filters<a class="headerlink" href="#spectral-filters" title="Permanent link">#</a></h3>
+<p>The following filters can be used for controlling the execution of the
+pipeline:</p>
 <ul>
-<li><code>center</code> - subtracts the column mean from the columns (batch filter)</li>
-<li><code>downsample</code> - extracts every n-th wave number</li>
-<li><code>equi-distance</code> - evenly spaces the wave numbers</li>
-<li><code>log</code> - log-transforms the amplitudes</li>
-<li><code>pca</code> - applies principal components analysis for dimensionality reduction</li>
-<li><code>pls1</code> - applies the PLS1 partial-least-squares algorithm (batch filter)</li>
-<li><code>rownorm</code> (aka <code>standard-normal-variate</code>) - subtracts mean and divides by standard deviation</li>
-<li><code>savitzky-golay</code> and <code>savitzky-golay2</code> - the Savitzky-Golay smoothing algorithm</li>
-<li><code>simpls</code> - applies the SIMPLS partial-least-squares algorithm (batch filter)</li>
-<li><code>standardize</code> - column-wise subtracts the column mean and divides by the column stdev (batch filter)</li>
+<li><code>block</code> - blocks data passing through based on a condition applied to the meta-data</li>
+<li><code>list-to-sequence</code> - forwards the elements of lists individually</li>
+<li><code>stop</code> - stops the pipeline if the meta-data-based condition holds true</li>
+<li><code>sub-process</code> - meta-data condition determines execution of sub-filter(s)</li>
+<li><code>tee</code> - meta-data condition determines forking off of data to the sub-pipeline (filter(s), [writer])</li>
+<li><code>trigger</code> - meta-data condition determines execution of the sub-pipeline (reader, [filter(s)], [writer])</li>
 </ul>
-<p>Applying PLS1:</p>
-<pre><code class="language-bash">sdc-convert -l INFO -b \
+<h2 id="sub-pipelines">Sub-pipelines<a class="headerlink" href="#sub-pipelines" title="Permanent link">#</a></h2>
+<p>With the <code>tee</code> meta-filter, it is possible to filter the spectra coming through with a separate
+sub-pipeline. That allows converting the incoming data into multiple output formats with
+their own preprocessing.</p>
+<p>The following command loads the ADAMS annotations and saves them in ASC and ASCII XY format
+in one command, but one with centered and the other with log-transformed data:</p>
+<pre><code class="language-bash">sdc-convert \
+  -l INFO \
+  -b \
   from-adams \
     -l INFO \
-    -i {CWD}/input/*.spec \
-  pls1 \
-    -l INFO \
-    -n 4 \
-    -r al.ext_usda.a1056_mg.kg \
-  to-adams \
-    -l INFO \
-    -o {CWD}/output/ \
-    --output_sampledata  
-</code></pre>
-<p>Using Savitzky-Golay:</p>
-<pre><code class="language-bash">sdc-convert -l INFO \
-  from-adams \
-    -l INFO \
-    -i {CWD}/input/*.spec \
-  savitzky-golay \
-    -l INFO \
-    -L 3 \
-    -R 5 \
-  to-adams \
-    -l INFO \
-    -o {CWD}/output/ \
-    --output_sampledata
-</code></pre>
-<h3 id="meta-data-management">Meta-data management<a class="headerlink" href="#meta-data-management" title="Permanent link">#</a></h3>
-<ul>
-<li><code>metadata</code> - allows comparisons on meta-data values and whether to keep or discard a record in case of a match</li>
-<li><code>metadata-from-name</code> - allows extraction of meta-data value from the spectrum name via a regular expression</li>
-<li><code>metadata-to-placeholder</code> - sets the specified placeholder using the data from the meta-data passing through</li>
-<li><code>set-metadata</code> - sets the meta-data key/value pair as data passes through, can make use of data passing through as well </li>
-<li><code>split-records</code> - adds a field to the meta-data (default: <code>split</code>) of the record passing through, which can be acted on with other filters (or stored in the output)</li>
-</ul>
-<p>Splitting data into train/test and training <code>center</code> on the <code>train</code> batch:</p>
-<pre><code class="language-bash">sdc-convert -l INFO -b \
-  from-adams \
-    -l INFO \
-    -i {CWD}/input/*.spec \
-  split-records \
-    --split_names train test \
-    --split_ratios 50 50 \
-  center \
-    -l INFO \
-    -k split \
-    --batch_order train test \
-  to-adams \
-    -l INFO \
-    -o {CWD}/output/ \
-    --output_sampledata
-</code></pre>
-<h3 id="record-management">Record management<a class="headerlink" href="#record-management" title="Permanent link">#</a></h3>
-<p>A number of generic record management filters are available:</p>
-<ul>
-<li><code>check-duplicate-filenames</code> - when using multiple batches as input, duplicate file names can be an issue when creating a combined output</li>
-<li><code>discard-by-name</code> - discards spectra based on their name, either using explicit names or regular expressions, e.g., excluding quality control samples</li>
-<li><code>max-records</code> - limits the number of records passing through</li>
-<li><code>randomize-records</code> - when processing batches, this filter can randomize them (seeded or unseeded)</li>
-<li><code>record-window</code> - only lets a certain window of records pass through (e.g., the first 1000)</li>
-<li><code>rename</code> - allows renaming of spectra, e.g., prefixing them with a batch number/ID</li>
-<li><code>sample</code> - for selecting a random sub-sample from the stream</li>
-</ul>
-<p>Randomizing records and outputting the first 100:</p>
-<pre><code class="language-bash">sdc-convert -l INFO \
-  from-adams \
-    -l INFO \
-    -i {CWD}/input/*.spec \
-  randomize-records \
-    -l INFO \
-    -s 1 \
-  max-records \
-    -l INFO \
-    -m 100 \
-  to-adams \
-    -l INFO \
-    -o {CWD}/test/adams/output/ \
-    --output_sampledata
-</code></pre>
-<h3 id="cleaning-data">Cleaning data<a class="headerlink" href="#cleaning-data" title="Permanent link">#</a></h3>
-<p>Using the <code>apply-cleaner</code> batch filter, you can clean batches of data
-using any of the defined cleaners. The following applies the IQR cleaner
-to remove spectra that have amplitudes that are considered outliers:</p>
-<pre><code class="language-bash">sdc-convert -l INFO -b \
-  from-adams \
-    -l INFO \
-    -i {CWD}/input/*.spec \
-  apply-cleaner \
-    -l INFO \
-    -c &quot;iqr-cl -l INFO -f 4.25&quot; \
-  to-adams \
-    -l INFO \
-    -o {CWD}/output/ \
-    --output_sampledata
+    -i &quot;./adams/*.spec&quot; \
+  tee \
+    -f &quot;center to-asc -l INFO -o ./tee-asc/&quot; \
+  tee \
+    -f &quot;standardize to-asciixy -l INFO -o ./tee-asciixy/&quot;
 </code></pre>
 
 
@@ -730,7 +605,7 @@ to remove spectra that have amplitudes that are considered outliers:</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+        <a href="../placeholders/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Placeholders" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -739,20 +614,20 @@ to remove spectra that have amplitudes that are considered outliers:</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Home
+              Placeholders
             </div>
           </div>
         </a>
       
       
         
-        <a href="../placeholders/" class="md-footer__link md-footer__link--next" aria-label="Next: Placeholders" rel="next">
+        <a href="../pyfunc/" class="md-footer__link md-footer__link--next" aria-label="Next: External functions" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Placeholders
+              External functions
             </div>
           </div>
           <div class="md-footer__button md-icon">

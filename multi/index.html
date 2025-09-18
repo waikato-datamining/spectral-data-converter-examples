@@ -280,8 +280,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker/" class="md-nav__link">
-        Docker usage
+      <a href="../execution_control/" class="md-nav__link">
+        Execution control
       </a>
     </li>
   
@@ -391,13 +391,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#sub-pipelines" class="md-nav__link">
-    Sub-pipelines
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -429,6 +422,62 @@
     <li class="md-nav__item">
       <a href="../directio/" class="md-nav__link">
         Direct I/O
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../email/" class="md-nav__link">
+        Email
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file_handling/" class="md-nav__link">
+        File handling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/" class="md-nav__link">
+        Temporary storage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        Docker usage
       </a>
     </li>
   
@@ -581,13 +630,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#sub-pipelines" class="md-nav__link">
-    Sub-pipelines
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -678,23 +720,6 @@ and JSON format:</p>
 <p><strong>NB:</strong> Since <code>to-csv-sd</code> is a batch writer expecting an output file rather 
 than a directory, we have to resort to using the <code>{INPUT_NAMENOEXT}</code>
 placeholder to generate output.</p>
-<h2 id="sub-pipelines">Sub-pipelines<a class="headerlink" href="#sub-pipelines" title="Permanent link">#</a></h2>
-<p>With the <code>tee</code> meta-filter, it is possible to filter the spectra coming through with a separate
-sub-pipeline. That allows converting the incoming data into multiple output formats with
-their own preprocessing.</p>
-<p>The following command loads the ADAMS annotations and saves them in ASC and ASCII XY format
-in one command, but one with centered and the other with log-transformed data:</p>
-<pre><code class="language-bash">sdc-convert \
-  -l INFO \
-  -b \
-  from-adams \
-    -l INFO \
-    -i &quot;./adams/*.spec&quot; \
-  tee \
-    -f &quot;center to-asc -l INFO -o ./tee-asc/&quot; \
-  tee \
-    -f &quot;standardize to-asciixy -l INFO -o ./tee-asciixy/&quot;
-</code></pre>
 
 
 
