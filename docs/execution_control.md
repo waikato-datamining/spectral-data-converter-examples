@@ -30,3 +30,25 @@ sdc-convert \
   tee \
     -f "standardize to-asciixy -l INFO -o ./tee-asciixy/"
 ```
+
+
+# Sub-pipeline file format
+
+`sub-process`, `tee` and `trigger` define their sub-flow either explicitly
+as a single command-line or point to a file with the sequence of plugins. The
+former should be used for simple sub-flows, whereas the latter makes it easier
+to develop more complex ones.
+
+The file format is quite simple:
+
+* plain text with extension of your choice
+* line comments start with `#`
+* blank lines get ignored
+* no line continuation, like `\` or `^`, is required
+
+After stripping the file of blank and comment lines (white spaces at start/end 
+of lines get removed as well), all the plugins and their arguments get 
+concatenated using spaces. The single command-line is then parsed.
+
+Of course, further sub-pipelines can be defined in such a file. There is no
+limit to nesting, as they get expanded/processed as they are encountered.
