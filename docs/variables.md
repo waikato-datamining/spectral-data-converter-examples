@@ -1,12 +1,12 @@
 Juggling longs paths in command-lines can be nightmare, which is the reason
-the spectral-data-converter library offers support for *placeholders*. 
-Placeholders can be used to shorten paths and making command-lines easier
-to transfer to another environment or user. Placeholders (format `{PH}`) 
+the spectral-data-converter library offers support for *variables*. 
+Variables can be used to shorten paths and making command-lines easier
+to transfer to another environment or user. Variables (format `{PH}`) 
 get expanded dynamically at runtime, taking the current state into account.
 
-# Placeholder types
+# Variable types
 
-There are different types of placeholders:
+There are different types of variables:
 
 * **System-defined** ones: 
 
@@ -24,21 +24,21 @@ There are different types of placeholders:
     * `{INPUT_PARENT_NAME}` - the name of the file's parent
 
 * **User-defined** ones, which are supplied to the tool itself, e.g., via the
-  `-p/--placeholders` option of the `sdc-convert` tool. The same script can
-  be executed using different directories when using different placeholder 
-  setups. The format for the placeholders files is simple, one placeholder
-  per line using `placeholder=value` as format. Empty lines and ones starting 
+  `-p/--variables` option of the `sdc-convert` tool. The same script can
+  be executed using different directories when using different variable 
+  setups. The format for the variables files is simple, one variable
+  per line using `variable=value` as format. Empty lines and ones starting 
   with `#` get ignored.
 
-* **Runtime** ones, which can be set with the `set-placeholder` plugin.
-  These placeholders can be based on other placeholders. The reason for this
+* **Runtime** ones, which can be set with the `set-variable` plugin.
+  These variables can be based on other variables. The reason for this
   plugin is that the output of some filters may not have any
   directory associated with them anymore, only a file name. That renders all
-  the input-based placeholders unusable. Using `set-placeholder` beforehand
-  allows *saving* the input directory in another placeholder for later use.
-  Meta-data can be used as placeholders as well using the `metadata-to-placeholder`
+  the input-based variables unusable. Using `set-variable` beforehand
+  allows *saving* the input directory in another variable for later use.
+  Meta-data can be used as variables as well using the `metadata-to-variable`
   plugin, which extracts a particular key from the metadata passing through
-  and updates the specified placeholder accordingly.
+  and updates the specified variable accordingly.
 
 
 # Examples
@@ -65,17 +65,17 @@ sdc-convert \
 When trying to convert spectra into another format and place them in the
 same location as the input spectra, manually copying files is rather tedious.
 Also, filters that get rid of the file path and only forward the file name, 
-like `savitzky-golay`, invalidate the use of input-based placeholders like `{INPUT_PATH}`.
-For that reason, the `set-placeholder` plugin can be used to
-*back up* such placeholders in other user-defined placeholders. The following
-pipeline backs up `{INPUT_PATH}` in the new placeholder `{OUTPUT_DIR}` and uses 
+like `savitzky-golay`, invalidate the use of input-based variables like `{INPUT_PATH}`.
+For that reason, the `set-variable` plugin can be used to
+*back up* such variables in other user-defined variables. The following
+pipeline backs up `{INPUT_PATH}` in the new variable `{OUTPUT_DIR}` and uses 
 that for saving the generated `.asc` files:
 
 ```bash
 sdc-convert -l INFO \
   from-adams \
     -i "/some/where/*.spec" \
-  set-placeholder \
+  set-variable \
     -l INFO \
     -p OUTPUT_DIR \
     -v "{INPUT_PATH}" \

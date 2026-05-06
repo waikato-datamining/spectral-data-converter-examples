@@ -87,4 +87,4 @@ sdc-convert \
 
 **NB:** Since `to-csv-sd` is a batch writer expecting an output file rather 
 than a directory, we have to resort to using the `{INPUT_NAMENOEXT}`
-placeholder to generate output.
+variable to generate output.
