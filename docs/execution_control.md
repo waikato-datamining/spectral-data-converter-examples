@@ -1,12 +1,12 @@
 The following filters can be used for controlling the execution of the
 pipeline:
 
-* `block` - blocks data passing through based on a condition applied to the meta-data
+* `block` - blocks data passing through based on a condition applied to the meta-data or value generated with a data-formatter
 * `list-to-sequence` - forwards the elements of lists individually
-* `stop` - stops the pipeline if the meta-data-based condition holds true
+* `stop` - stops the pipeline if the meta-data-based or data-formatter-based condition holds true
 * `sub-process` - meta-data condition determines execution of sub-filter(s)
-* `tee` - meta-data condition determines forking off of data to the sub-pipeline (filter(s), [writer])
-* `trigger` - meta-data condition determines execution of the sub-pipeline (reader, [filter(s)], [writer])
+* `tee` - meta-data/data-formatter condition determines forking off of data to the sub-pipeline (filter(s), [writer])
+* `trigger` - meta-data/data-formatter condition determines execution of the sub-pipeline (reader, [filter(s)], [writer])
 
 
 # Sub-pipelines
