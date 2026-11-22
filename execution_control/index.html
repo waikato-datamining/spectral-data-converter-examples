@@ -852,12 +852,12 @@
 <p>The following filters can be used for controlling the execution of the
 pipeline:</p>
 <ul>
-<li><code>block</code> - blocks data passing through based on a condition applied to the meta-data</li>
+<li><code>block</code> - blocks data passing through based on a condition applied to the meta-data or value generated with a data-formatter</li>
 <li><code>list-to-sequence</code> - forwards the elements of lists individually</li>
-<li><code>stop</code> - stops the pipeline if the meta-data-based condition holds true</li>
+<li><code>stop</code> - stops the pipeline if the meta-data-based or data-formatter-based condition holds true</li>
 <li><code>sub-process</code> - meta-data condition determines execution of sub-filter(s)</li>
-<li><code>tee</code> - meta-data condition determines forking off of data to the sub-pipeline (filter(s), [writer])</li>
-<li><code>trigger</code> - meta-data condition determines execution of the sub-pipeline (reader, [filter(s)], [writer])</li>
+<li><code>tee</code> - meta-data/data-formatter condition determines forking off of data to the sub-pipeline (filter(s), [writer])</li>
+<li><code>trigger</code> - meta-data/data-formatter condition determines execution of the sub-pipeline (reader, [filter(s)], [writer])</li>
 </ul>
 <h2 id="sub-pipelines">Sub-pipelines<a class="headerlink" href="#sub-pipelines" title="Permanent link">#</a></h2>
 <p>With the <code>tee</code> meta-filter, it is possible to filter the spectra coming through with a separate
